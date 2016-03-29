@@ -24,7 +24,30 @@ module.exports = function() {
 				res.json({message: "Reservation created"});
 				
 			});
+		})
+		.get(function(req, res) {
+			Reservation.find(function(err, reservations) {
+				if (err) {
+					res.send(err);
+				}
+
+				res.json(reservations);
+			})
 		});
+
+
+	router.route("/reservations/:reservation_id")
+		.delete(function(req, res) {
+			Reservation.remove({
+				_id: req.params.reservation_id
+			}, function(err, reservation) {
+				if (err) {
+					res.send(err);
+				}
+
+				res.json({message: "Reservation deleted" });		
+			}			  
+		)});
 
 	return router;
 };
