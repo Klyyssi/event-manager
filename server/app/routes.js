@@ -1,52 +1,54 @@
 var express = require("express");
-var Reservation = require("./models/reservation.js");
+var Event = require("./models/event.js");
 
 module.exports = function() {
-	
+
 	var router = express.Router();
 
 	router.get("/", function(req, res) {
 		res.json({ message: "Hello world" });
 	});
 
-	router.route("/reservations")
+	router.route("/events")
 		.post(function(req, res) {
-			var reservation = new Reservation();
-			reservation.email = req.body.email;
-			reservation.reservationStart = req.body.reservationStart;
-			reservation.reservationEnd = req.body.reservationEnd;
+			var event = new Event();
+			event.author = req.body.author;
+      event.title = req.body.title;
+			event.eventStart = req.body.eventStart;
+			event.eventEnd = req.body.eventEnd;
+      event.additionalInfo = req.body.additionalInfo;
 
-			reservation.save(function(err) {
+			event.save(function(err) {
 				if (err) {
 					res.send(err);
 				}
 
-				res.json({message: "Reservation created"});
-				
+				res.json({message: "Event created"});
+
 			});
 		})
 		.get(function(req, res) {
-			Reservation.find(function(err, reservations) {
+			Event.find(function(err, events) {
 				if (err) {
 					res.send(err);
 				}
 
-				res.json(reservations);
+				res.json(events);
 			})
 		});
 
 
-	router.route("/reservations/:reservation_id")
+	router.route("/events/:event_id")
 		.delete(function(req, res) {
-			Reservation.remove({
-				_id: req.params.reservation_id
-			}, function(err, reservation) {
+			Event.remove({
+				_id: req.params.event_id
+			}, function(err, event) {
 				if (err) {
 					res.send(err);
 				}
 
-				res.json({message: "Reservation deleted" });		
-			}			  
+				res.json({message: "Event deleted" });
+			}
 		)});
 
 	return router;

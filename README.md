@@ -1,3 +1,3 @@
-# Reservation calendar
+# Events manager
 
 Demo NodeJS REST API & JS Client. 
