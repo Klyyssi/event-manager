@@ -17,6 +17,7 @@ module.exports = function() {
 			event.eventStart = req.body.eventStart;
 			event.eventEnd = req.body.eventEnd;
       event.additionalInfo = req.body.additionalInfo;
+      event.location = req.body.location;
 
 			event.save(function(err) {
 				if (err) {

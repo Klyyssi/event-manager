@@ -9,5 +9,7 @@ var EventSchema = new Schema({
   additionalInfo: String
 });
 
+EventSchema.add({ location: {type: String, required: true} });
+
 module.exports = mongoose.model("Event", EventSchema);
 
