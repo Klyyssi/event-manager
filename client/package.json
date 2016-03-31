@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Demo client-side of reservation calendar",
   "scripts": {
-    "build:js": "browserify -t [ babelify --presets [ react ] ] public/js/main.js -o public/js/bundle.js",
+    "build:js": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
