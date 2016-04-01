@@ -1,7 +1,10 @@
 var ReactDOM = require('react-dom');
 var React = require('react');
 var Table = require("./table.js");
-var Router = require("react-router");
+var Router = require("react-router").Router;
+var Route = require("react-router").Route;
+var hashHistory = require("react-router").hashHistory;
+
 
 var MOCK_DATA = [
   {title: "Mocking event", author: "Testing guru", location: "Mockito islands",
@@ -11,7 +14,17 @@ var MOCK_DATA = [
 
 ];
 
+var TableWrapper = React.createClass({
+  render: function() {
+    return (
+      <Table data={MOCK_DATA} />
+    );
+  }
+});
+
 ReactDOM.render(
-  <Table data={MOCK_DATA} />,
+  <Router history={hashHistory}>
+    <Route path="/" component={TableWrapper} />
+  </Router>,
   document.getElementById('app')
 );
