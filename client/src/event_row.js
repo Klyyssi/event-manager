@@ -12,6 +12,7 @@ module.exports = React.createClass({
         <td>{moment(this.props.event.eventStart).format(timeFormat)}</td>
         <td>{moment(this.props.event.eventEnd).format(timeFormat)}</td>
         <td>{this.props.event.additionalInfo}</td>
+        <td><a href="/edit">Edit</a></td>
       </tr>
     );
   }
