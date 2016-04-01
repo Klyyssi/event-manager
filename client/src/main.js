@@ -1,5 +1,6 @@
 var React = require("react");
 var Table = require("./table.js");
+var Link = require("react-router").Link;
 
 var MOCK_DATA = [
   {title: "Mocking event", author: "Testing guru", location: "Mockito islands",
@@ -14,7 +15,7 @@ module.exports = React.createClass({
     return (
       <div>
         <Table data={MOCK_DATA} />
-        <button>Create new event</button>
+        <Link to="/new">Create new event</Link>
       </div>
     );
   }
