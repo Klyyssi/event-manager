@@ -1,5 +1,6 @@
 var React = require("react");
 var moment = require("moment");
+var DeleteButton = require("./delete_button.js");
 
 module.exports = React.createClass({
   render: function() {
@@ -12,7 +13,7 @@ module.exports = React.createClass({
         <td>{moment(this.props.event.eventStart).format(timeFormat)}</td>
         <td>{moment(this.props.event.eventEnd).format(timeFormat)}</td>
         <td>{this.props.event.additionalInfo}</td>
-        <td><a href="/edit">Edit</a></td>
+        <td><DeleteButton url="/api/events/{this.props.event._id}" /></td>
       </tr>
     );
   }

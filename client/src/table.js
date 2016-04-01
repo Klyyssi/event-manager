@@ -18,7 +18,7 @@ module.exports = React.createClass({
             <th>Starts at</th>
             <th>Ends at</th>
             <th>Additional info</th>
-            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
