@@ -8,7 +8,13 @@ var getRouter = require("./app/routes.js");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8081;
+
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Cache-Control', 'no-cache');
+    next();
+});
 
 var router = getRouter();
 
