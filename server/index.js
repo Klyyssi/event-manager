@@ -12,6 +12,7 @@ var port = process.env.PORT || 8081;
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE");
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
