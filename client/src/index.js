@@ -3,12 +3,13 @@ var React = require('react');
 var MainView = require("./main.js");
 var NewEvent = require("./new_event.js");
 var Router = require("react-router").Router;
-var Route = require("react-router").Route;
-var hashHistory = require("react-router").hashHistory;
+var Route = Router.Route;
+var IndexRoute = Router.IndexRoute;
+var browserHistory = Router.browserHistory;
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={MainView} />
+  <Router history={browserHistory}>
+    <IndexRoute component={MainView} />
     <Route path="/new" component={NewEvent} />
   </Router>,
   document.getElementById('app')

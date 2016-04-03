@@ -1,9 +1,24 @@
 var React = require("react");
+var $ = require("jquery");
+var browserHistory = require("react-router").browserHistory;
 
 module.exports = React.createClass({
+  handleDelete: function() {
+    $.ajax({
+      url: this.props.url,
+      type: 'DELETE',
+      success: function() {
+        browserHistory.push("/");
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+
   render: function() {
     return (
-      <button>Delete</button>
+      <button onClick={this.handleDelete}>Delete</button>
     );
   }
 });
