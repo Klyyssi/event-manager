@@ -1,6 +1,5 @@
 var React = require("react");
 var $ = require("jquery");
-var browserHistory = require("react-router").browserHistory;
 
 module.exports = React.createClass({
   handleDelete: function() {
@@ -8,7 +7,7 @@ module.exports = React.createClass({
       url: this.props.url,
       type: 'DELETE',
       success: function() {
-        browserHistory.push("/");
+        window.location.replace("/");
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
